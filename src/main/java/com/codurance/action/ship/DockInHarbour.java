@@ -21,17 +21,5 @@ public class DockInHarbour {
     }
 
     public void execute(EntityId harbourId) throws Exception {
-        List<Dock> availableDocks = harbourService.getAvailableDocks(harbourId);
-
-        if (availableDocks.size() < 1)
-            throw new Exception();
-
-        Dock targetDock = availableDocks.get(0);
-
-        navigationService.to(targetDock.coordinates);
-        anchorService.drop();
-        targetDock.isAvailable = false;
-        harbourService.updateDock(targetDock);
-
     }
 }

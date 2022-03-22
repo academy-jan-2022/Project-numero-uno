@@ -13,19 +13,7 @@ public class NavigationService {
     }
 
     public void to(Coordinates coordinates) throws InterruptedException {
-        Direction targetDirection = directionTo(ship.coordinates, coordinates);
-        Distance targetDistance = distanceBetween(ship.coordinates, coordinates);
-        steeringService.steer(targetDirection);
-        propulsionService.switchToAuxiliaryEngine();
-        propulsionService.engageThrust();
-
-        while (!targetDistance.equals(OptimalStoppingDistance)){
-            targetDistance = distanceBetween(ship.coordinates, coordinates);
-            Thread.sleep(1000);
-        }
-
-        propulsionService.disengageThrust();
-
+        throw new UnsupportedOperationException("Not yet implemented!");
     }
 
     private Distance distanceBetween(Coordinates startingCoordinates, Coordinates destinationCoordinates) {
